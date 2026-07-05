@@ -146,4 +146,8 @@ def build_app() -> gr.Blocks:
 
 if __name__ == "__main__":
     app = build_app()
-    app.launch()
+    port = int(os.getenv("PORT", "7860"))
+    app.launch(
+        server_name=os.getenv("GRADIO_SERVER_NAME", "0.0.0.0"),
+        server_port=port,
+    )
